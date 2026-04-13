@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atmospheric | Premium Weather Forecast</title>
+    <!-- Google Fonts for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header / Navigation -->
+        <header>
+            <div class="logo">
+                <span class="logo-text">Atmospheric</span>
+            </div>
+            <nav class="top-nav">
+                <a href="#" class="active">Forecast</a>
+                <a href="#">Radar</a>
+                <a href="#">Precip</a>
+                <a href="#">Alerts</a>
+                <span id="nav-location" class="nav-location-tag hidden">
+                    <i class="fa-solid fa-location-arrow"></i> <span id="current-loc-nav">Current Location</span>
+                </span>
+            </nav>
+            <div class="header-actions">
+                <button id="location-btn" title="Detect Location"><i
+                        class="fa-solid fa-location-crosshairs"></i></button>
+                <button id="settings-btn" title="Settings"><i class="fa-solid fa-gear"></i></button>
+            </div>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-bar">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" id="city-input" placeholder="Search city..." autocomplete="off">
+            </div>
+            <button id="search-btn">Get Weather</button>
+            <div class="unit-toggle">
+                <span id="unit-c" class="unit active">°C</span>
+                <span id="unit-f" class="unit">°F</span>
+            </div>
+        </section>
+
+        <!-- Main Weather Display -->
+        <main id="weather-content" class="hidden">
+            <div class="hero-section">
+                <div class="weather-brief">
+                    <h1 id="city-name"><i class="fa-solid fa-location-dot"></i> <span id="name-span">City, CO</span>
+                    </h1>
+                    <div class="temp-container">
+                        <span id="main-temp">--</span><span class="degree">°</span>
+                    </div>
+                    <div class="condition-info">
+                        <h2 id="weather-desc">Condition</h2>
+                        <p id="feels-like">Feels like --°</p>
+                    </div>
+                </div>
+                <div class="weather-visual">
+                    <div class="weather-icon-card">
+                        <img id="weather-icon" src="" alt="Weather Icon">
+                        <div class="pressure-badge">
+                            ATMOSPHERIC PRESSURE: <span id="pressure">----</span> HPA
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail Cards -->
+            <div class="details-grid">
+                <div class="card humidity-card">
+                    <div class="card-header">
+                        <div class="icon-box blue"><i class="fa-solid fa-droplet"></i></div>
+                        <span class="label">HUMIDITY</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 id="humidity-val">--%</h3>
+                        <p id="dew-point-desc">Weather is clear right now</p>
+                    </div>
+                </div>
+
+                <div class="card wind-card">
+                    <div class="card-header">
+                        <div class="icon-box light-blue"><i class="fa-solid fa-wind"></i></div>
+                        <span class="label">WIND SPEED</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 id="wind-val">--km/h</h3>
+                        <p id="wind-dir-desc">Blowing from the North-West</p>
+                    </div>
+                </div>
+
+                <!-- Google Maps Card -->
+                <div class="card map-card">
+                    <div class="map-overlay">
+                        <span class="badge"><i class="fa-solid fa-circle"></i> Live Radar View</span>
+                    </div>
+                    <div id="map-container">
+                        <!-- Google Maps Iframe will be injected here -->
+                        <iframe id="google-map" src="" width="100%" height="100%" style="border:0;" allowfullscreen=""
+                            loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Loading State -->
+        <div id="loader" class="loader-container hidden">
+            <div class="spinner"></div>
+            <p>Fetching weather data...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="error-message" class="error-container hidden">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <p id="error-text">City not found. Please try again.</p>
+        </div>
+
+        <!-- Bottom Tab Bar (Visual) -->
+        <footer class="bottom-tabs">
+            <a href="#" class="tab-item active">
+                <i class="fa-solid fa-sun"></i>
+                <span>FORECAST</span>
+            </a>
+            <a href="#" class="tab-item">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>RADAR</span>
+            </a>
+            <a href="#" class="tab-item">
+                <i class="fa-solid fa-umbrella"></i>
+                <span>PRECIP</span>
+            </a>
+            <a href="#" class="tab-item">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <span>ALERTS</span>
+            </a>
+        </footer>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
