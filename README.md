@@ -10,6 +10,7 @@ Core Features:
 
 - Search weather by city name
 - Real-time data fetching from a public API
+
 Display of:
 - City name
 - Current temperature
