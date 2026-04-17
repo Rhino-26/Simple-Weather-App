@@ -10,7 +10,7 @@ Core Features:
 
 - Search weather by city name
 - Real-time data fetching from a public API
-- Display of:
+Display of:
 - City name
 - Current temperature
 - Weather condition (e.g., sunny, cloudy, rain)
